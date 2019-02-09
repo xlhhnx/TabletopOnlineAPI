@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TabletopOnlineAPI.Data", "TabletopOnlineAPI.Data\TabletopOnlineAPI.Data.csproj", "{73E2FB89-6C90-46EF-A6ED-2890CAEC2982}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopOnlineAPI", "TabletopOnlineAPI\TabletopOnlineAPI.csproj", "{158B34E0-C8BA-4AA1-BA76-C1E4ACC77128}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73E2FB89-6C90-46EF-A6ED-2890CAEC2982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E2FB89-6C90-46EF-A6ED-2890CAEC2982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E2FB89-6C90-46EF-A6ED-2890CAEC2982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E2FB89-6C90-46EF-A6ED-2890CAEC2982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{158B34E0-C8BA-4AA1-BA76-C1E4ACC77128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{158B34E0-C8BA-4AA1-BA76-C1E4ACC77128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{158B34E0-C8BA-4AA1-BA76-C1E4ACC77128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{158B34E0-C8BA-4AA1-BA76-C1E4ACC77128}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {576CD267-D9BB-441C-99E8-A8551D8EC7DA}
+	EndGlobalSection
+EndGlobal

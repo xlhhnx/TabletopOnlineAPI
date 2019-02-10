@@ -6,12 +6,12 @@ using TabletopOnlineAPI.Data.Models;
 
 namespace TabletopOnlineAPI.Data.Contexts
 {
-    public class DatabaseContext : DbContext
+    public class AppDatabase : DbContext
     {
         public DbSet<User> Users;
         public DbSet<Session> Sessions;
 
-        public DatabaseContext( DbContextOptions<DatabaseContext> options )
+        public AppDatabase( DbContextOptions<AppDatabase> options )
             : base( options )
         { }
     }

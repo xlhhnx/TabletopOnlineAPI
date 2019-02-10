@@ -16,9 +16,9 @@ namespace TabletopOnlineAPI.Logic
         private const int HASH_LENGTH = 24;
         private const int HASH_ITERATIONS = 10000;
 
-        protected DatabaseContext _dbContext;
+        protected Data.Contexts.AppDatabase _dbContext;
 
-        public Authentication( DatabaseContext dbContext )
+        public Authentication( Data.Contexts.AppDatabase dbContext )
         {
             _dbContext = dbContext;
         }
@@ -37,7 +37,7 @@ namespace TabletopOnlineAPI.Logic
         public bool Authenticate( User user , Guid sessionId ) =>
             _dbContext.Sessions.Where( s => s.User == user && s.SessionId == sessionId ).Any();
 
-        public void SavePassword( User user , string password )
+        public void UpdatePassword( User user , string password )
         {
             var salt = new byte[ SALT_LENGTH ];
             new RNGCryptoServiceProvider().GetBytes( salt );
@@ -48,6 +48,11 @@ namespace TabletopOnlineAPI.Logic
             var passwordHash = Convert.ToBase64String( store );
 
             user.Password = passwordHash;
+        }
+
+        public void SavePassword( User user , string password )
+        {
+            UpdatePassword( user , password );
             _dbContext.SaveChanges();
         }
     }

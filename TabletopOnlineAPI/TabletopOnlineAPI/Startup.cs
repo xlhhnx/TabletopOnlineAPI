@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TabletopOnlineAPI.Data.Contexts;
+using TabletopOnlineAPI.Logic;
 
 namespace TabletopOnlineAPI
 {
@@ -27,7 +29,17 @@ namespace TabletopOnlineAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices( IServiceCollection services )
         {
-            services.AddDbContext<DatabaseContext>( options => options.UseSqlite( Configuration.GetConnectionString( "SqliteConnection" ) ) );
+            services.AddDbContext<AppDatabase>( options =>
+            {
+                options.UseSqlite( string.Format( Configuration[ "AppDbConnection" ] , Directory.GetCurrentDirectory() ) );
+            } );
+            services.AddDbContext<GameDatabase>( options =>
+            {
+                options.UseSqlite( string.Format( Configuration[ "GameDbConnection" ], Directory.GetCurrentDirectory() ) );
+            } );
+
+            services.AddTransient<Authentication>();
+            services.AddTransient<UserManagement>();
 
             services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
         }

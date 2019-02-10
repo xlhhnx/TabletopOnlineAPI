@@ -9,5 +9,10 @@ namespace TabletopOnlineAPI.Controllers
     [Route("[controller]")]
     public class DashboardController : Controller
     {
+        [HttpGet]
+        public IActionResult Test()
+        {
+            return Ok( "The test worked!" );
+        }
     }
 }
